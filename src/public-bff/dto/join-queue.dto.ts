@@ -1,15 +1,9 @@
-import { IsNotEmpty, IsObject, IsOptional, IsString } from 'class-validator';
+import { z } from 'zod';
 
-export class JoinQueueDto {
-  @IsString()
-  @IsNotEmpty()
-  eventId!: string;
+export const JoinQueueDtoSchema = z.object({
+  eventId: z.string().min(1),
+  userId: z.string().optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
+});
 
-  @IsString()
-  @IsOptional()
-  userId?: string;
-
-  @IsObject()
-  @IsOptional()
-  metadata?: Record<string, unknown>;
-}
+export type JoinQueueDto = z.infer<typeof JoinQueueDtoSchema>;

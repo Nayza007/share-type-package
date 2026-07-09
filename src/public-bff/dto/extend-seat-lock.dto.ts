@@ -1,15 +1,9 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { z } from 'zod';
 
-export class ExtendSeatLockDto {
-  @IsString()
-  @IsNotEmpty()
-  eventId!: string;
+export const ExtendSeatLockDtoSchema = z.object({
+  eventId: z.string().min(1),
+  seatId: z.string().min(1),
+  lockToken: z.string().min(1),
+});
 
-  @IsString()
-  @IsNotEmpty()
-  seatId!: string;
-
-  @IsString()
-  @IsNotEmpty()
-  lockToken!: string;
-}
+export type ExtendSeatLockDto = z.infer<typeof ExtendSeatLockDtoSchema>;

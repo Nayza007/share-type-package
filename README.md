@@ -23,7 +23,21 @@ npm run build
 ## Usage
 
 ```ts
-import { JoinQueueDto, LockSeatDto } from 'muay-share-types';
+import {
+  JoinQueueDtoSchema,
+  type JoinQueueDto,
+  LockSeatDtoSchema,
+  type LockSeatDto,
+} from 'muay-share-types';
+
+const joinQueuePayload: JoinQueueDto = JoinQueueDtoSchema.parse({
+  eventId: 'evt_1',
+});
+
+const lockSeatPayload: LockSeatDto = LockSeatDtoSchema.parse({
+  eventId: 'evt_1',
+  seatId: 'A1',
+});
 ```
 
 ## GitHub usage

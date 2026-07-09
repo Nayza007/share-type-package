@@ -1,11 +1,8 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { z } from 'zod';
 
-export class ReleaseQueueDto {
-  @IsString()
-  @IsNotEmpty()
-  eventId!: string;
+export const ReleaseQueueDtoSchema = z.object({
+  eventId: z.string().min(1),
+  queueToken: z.string().min(1),
+});
 
-  @IsString()
-  @IsNotEmpty()
-  queueToken!: string;
-}
+export type ReleaseQueueDto = z.infer<typeof ReleaseQueueDtoSchema>;

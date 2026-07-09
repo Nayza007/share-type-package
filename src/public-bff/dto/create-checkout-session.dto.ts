@@ -1,27 +1,16 @@
-import { Type } from 'class-transformer';
-import { IsArray, IsNotEmpty, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { z } from 'zod';
 
-export class CheckoutItemDto {
-  @IsString()
-  @IsNotEmpty()
-  ticketTypeId!: string;
+export const CheckoutItemDtoSchema = z.object({
+  ticketTypeId: z.string().min(1),
+  seatId: z.string().optional(),
+});
 
-  @IsString()
-  @IsOptional()
-  seatId?: string;
-}
+export type CheckoutItemDto = z.infer<typeof CheckoutItemDtoSchema>;
 
-export class CreateCheckoutSessionDto {
-  @IsString()
-  @IsNotEmpty()
-  eventId!: string;
+export const CreateCheckoutSessionDtoSchema = z.object({
+  eventId: z.string().min(1),
+  queueToken: z.string().optional(),
+  items: z.array(CheckoutItemDtoSchema),
+});
 
-  @IsString()
-  @IsOptional()
-  queueToken?: string;
-
-  @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => CheckoutItemDto)
-  items!: CheckoutItemDto[];
-}
+export type CreateCheckoutSessionDto = z.infer<typeof CreateCheckoutSessionDtoSchema>;
