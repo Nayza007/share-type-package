@@ -1,6 +1,6 @@
 {
   "name": "muay-share-types",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Shared DTO types for Muay services",
   "license": "MIT",
   "main": "dist/index.js",
