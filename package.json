@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/athisan/muay-share-types.git"
+    "url": "git+https://github.com/Nayza007/share-type-package.git"
   },
   "publishConfig": {
     "access": "public"

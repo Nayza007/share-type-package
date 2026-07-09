@@ -5,13 +5,13 @@ Shared DTO package for Muay services.
 ## Install
 
 ```bash
-npm install github:athisan/muay-share-types
+npm install git+https://github.com/Nayza007/share-type-package.git
 ```
 
 Or pin a branch:
 
 ```bash
-npm install github:athisan/muay-share-types#main
+npm install git+https://github.com/Nayza007/share-type-package.git#main
 ```
 
 ## Scripts
@@ -29,4 +29,4 @@ import { JoinQueueDto, LockSeatDto } from 'muay-share-types';
 ## GitHub usage
 
 1. Push this folder to GitHub
-2. Install from GitHub with `npm install github:athisan/muay-share-types`
+2. Install from GitHub with `npm install git+https://github.com/Nayza007/share-type-package.git#main`
