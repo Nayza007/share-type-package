@@ -27,6 +27,11 @@ export const CreateCheckoutSessionDtoSchema = z
       .min(1)
       .describe('Event identifier associated with the checkout')
       .meta({ example: 'evt_123' }),
+    userId: z
+      .string()
+      .min(1)
+      .describe('User identifier that owns the checkout attempt')
+      .meta({ example: 'user_123' }),
     queueToken: z
       .string()
       .describe('Optional queue token proving queue eligibility')
